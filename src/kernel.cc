@@ -244,7 +244,7 @@ NAN_METHOD(Kernel::setArg)
     // TODO check types LOCAL
     switch (type) {
     case types::LOCAL_MEMORY_SIZE: {
-      ret = ::clSetKernelArg(kernel->getKernel(), arg_index, sizeof(float), NULL);
+      ret = ::clSetKernelArg(kernel->getKernel(), arg_index, sizeof(float) * args[1]->Uint32Value(), NULL);
       break;
     }
     case types::INT: {
